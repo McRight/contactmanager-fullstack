@@ -9,11 +9,6 @@ const Login = props => {
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
-  const [user, setUser] = useState({
-    email: '',
-    password: ''
-  });
-
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/');
@@ -25,6 +20,11 @@ const Login = props => {
     }
     // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
+
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  });
 
   const { email, password } = user;
 
